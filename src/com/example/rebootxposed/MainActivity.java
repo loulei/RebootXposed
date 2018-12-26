@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 
 public class MainActivity extends Activity {
 	
@@ -18,6 +19,10 @@ public class MainActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		TelephonyManager telephonyManager = (TelephonyManager) getSystemService("phone");
+		System.out.println(telephonyManager.getSubscriberId());
+		System.out.println(telephonyManager.getDeviceId());
 		
 		try {
 			PackageManager packageManager = getApplicationContext().getPackageManager();
