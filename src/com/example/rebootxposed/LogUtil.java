@@ -6,9 +6,14 @@ public class LogUtil {
 
 	private static int LOG_MAX_LENGTH = 2000;
 	private static boolean isPrintLog = true;
+	private static String TAG = LogUtil.class.getSimpleName();
 	
 	public static void d(String msg){
-		d(LogUtil.class.getSimpleName(), msg);
+		d(TAG, msg);
+	}
+	
+	public static void setTag(String tag){
+		TAG = tag;
 	}
 	
 	public static void d(String tagName, String msg){

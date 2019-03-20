@@ -6,8 +6,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 
@@ -20,11 +22,11 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		TelephonyManager telephonyManager = (TelephonyManager) getSystemService("phone");
-		System.out.println(telephonyManager.getSubscriberId());
-		System.out.println(telephonyManager.getDeviceId());
+		
+		
 		
 		try {
+			SoReleaseUtil.release(getApplicationContext());
 			PackageManager packageManager = getApplicationContext().getPackageManager();
 			String apkPath = packageManager.getPackageInfo(getPackageName(), 0).applicationInfo.sourceDir;
 			System.out.println(apkPath);
@@ -46,4 +48,5 @@ public class MainActivity extends Activity {
 			e.printStackTrace();
 		}
 	}
+	
 }
